@@ -41,15 +41,21 @@ export default function FeaturesList({ features, isLoading }) {
         <SwiperSlide key={feature.id || idx} sx={{ py: 2, px: "auto" }}>
           {isLoading ? (
             <FeaturesSkeleton />
-          ) : indexPoster === idx ? (
-            <Poster
-              src="https://res.cloudinary.com/codershool/image/upload/v1669084095/ucars/cars/poster_uthzzo.png"
-              sx={{
-                minHeight: "361px",
-              }}
-            />
           ) : (
-            <FeaturesCard feature={feature} />
+            <>
+              {indexPoster === idx && (
+                <Poster
+                  src="https://res.cloudinary.com/codershool/image/upload/v1669084095/ucars/cars/poster_uthzzo.png"
+                  sx={{
+                    height: "361px",
+                    borderTopRightRadius: "38px",
+                    borderBottomLeftRadius: "38px",
+                    backgroundSize: "contain, cover",
+                  }}
+                />
+              )}
+              <FeaturesCard feature={feature} />
+            </>
           )}
         </SwiperSlide>
       ))}

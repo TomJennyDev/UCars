@@ -7,6 +7,10 @@ export default function FeaturesSkeleton() {
       sx={{
         minWidth: "415px",
         minHeight: "361px",
+        fontFamily: "Poppins",
+        borderTopRightRadius: "38px",
+        borderBottomLeftRadius: "38px",
+        my: 2,
       }}
     >
       <SkeletonLoading

@@ -54,7 +54,7 @@ function SearchOption() {
   const isOpen = (id) => {
     return anchorEl?.id === id;
   };
-  console.log(isOpen());
+
   const methods = useForm({
     defaultValues,
   });

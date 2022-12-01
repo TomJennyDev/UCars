@@ -54,6 +54,7 @@ function useFeatures() {
           payload: { features: data },
         });
       },
+      refetchOnWindowFocus: false,
     }
   );
 

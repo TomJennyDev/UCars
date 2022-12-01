@@ -1,4 +1,4 @@
-import { Avatar, Box, Stack } from "@mui/material";
+import { Avatar, Box, Link, Stack } from "@mui/material";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -47,47 +47,49 @@ export default function ProductCard({ product }) {
   const isLgUp = useResponsive("up", "lg");
 
   return (
-    <Card
-      sx={{
-        minWidth: isLgUp ? "auto" : "281px",
-        minHeight: isLgUp ? "auto" : "361px",
-      }}
-    >
-      <CardMedia
-        component="img"
-        height="187"
-        image={product.imgUrl}
-        alt={product.name}
-        sx={{ width: "100%" }}
-      />
-      <CardContent sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
-        <Title gutterBottom nowrap="true">
-          {product.name}
-        </Title>
-        <Box>
-          <Typography
-            color="palette.grey[800]"
-            sx={{ display: "inline-block", mr: 1 }}
-          >
-            From <PriceCard>{fCurrency(product.price.total)}</PriceCard>
-          </Typography>
-          <ChipCard>
-            {fCurrency(product.price.installment.price)}/
-            {product.price.installment.tenure.type.slice(0, 2)}
-          </ChipCard>
-        </Box>
-        <VariantCard>
-          {`${product.variants} variants ${
-            Object.keys(product.licence.coe).length ? "| with COE" : ""
-          }  `}
-        </VariantCard>
-        <Stack direction="row" alignItems="center" sx={{ gap: 1 }}>
-          <Avatar alt={product.brand.name} src={product.brand.imgUrl} />
-          <Typography color="palette.grey[800]" sx={{ fontSize: "14px" }}>
-            {product.type}
-          </Typography>
-        </Stack>
-      </CardContent>
-    </Card>
+    <Link underline="none" href="#">
+      <Card
+        sx={{
+          minWidth: isLgUp ? "auto" : "281px",
+          minHeight: isLgUp ? "auto" : "361px",
+        }}
+      >
+        <CardMedia
+          component="img"
+          height="187"
+          image={product.imgUrl}
+          alt={product.name}
+          sx={{ width: "100%" }}
+        />
+        <CardContent sx={{ display: "flex", flexDirection: "column", gap: 1 }}>
+          <Title gutterBottom nowrap="true">
+            {product.name}
+          </Title>
+          <Box>
+            <Typography
+              color="palette.grey[800]"
+              sx={{ display: "inline-block", mr: 1 }}
+            >
+              From <PriceCard>{fCurrency(product.price.total)}</PriceCard>
+            </Typography>
+            <ChipCard>
+              {fCurrency(product.price.installment.price)}/
+              {product.price.installment.tenure.type.slice(0, 2)}
+            </ChipCard>
+          </Box>
+          <VariantCard>
+            {`${product.variants} variants ${
+              Object.keys(product.licence.coe).length ? "| with COE" : ""
+            }  `}
+          </VariantCard>
+          <Stack direction="row" alignItems="center" sx={{ gap: 1 }}>
+            <Avatar alt={product.brand.name} src={product.brand.imgUrl} />
+            <Typography color="palette.grey[800]" sx={{ fontSize: "14px" }}>
+              {product.type}
+            </Typography>
+          </Stack>
+        </CardContent>
+      </Card>
+    </Link>
   );
 }

@@ -1,4 +1,4 @@
-import { Alert, Grid } from "@mui/material";
+import { Alert, Box, Grid } from "@mui/material";
 import { randomNumber } from "@utils";
 import Poster from "components/Poster";
 import useResponsive from "hooks/useResponsive";
@@ -33,15 +33,30 @@ export default function ProductList({ products, isLoading }) {
       )}
 
       {products?.map((product, idx) => (
-        <Grid key={product._id || idx} item xs={12} sm={12} md={3}>
-          {isLoading ? (
-            <ProductCardSkeleton />
-          ) : indexPoster === idx ? (
-            <Poster src="https://res.cloudinary.com/codershool/image/upload/v1669084095/ucars/cars/poster_uthzzo.png" />
-          ) : (
-            <ProductCard product={product} isLoading={isLoading} />
-          )}
-        </Grid>
+        <>
+          <Grid key={product.id || idx} item xs={12} sm={12} md={3}>
+            <Box
+              sx={{
+                width: "100%",
+                height: "100%",
+                position: "relative",
+                borderRadius: 8,
+                overFlow: "hidden",
+              }}
+            >
+              {isLoading ? (
+                <ProductCardSkeleton />
+              ) : (
+                <>
+                  {indexPoster === idx && (
+                    <Poster src="https://res.cloudinary.com/codershool/image/upload/v1669084095/ucars/cars/poster_uthzzo.png" />
+                  )}
+                  <ProductCard product={product} isLoading={isLoading} />
+                </>
+              )}
+            </Box>
+          </Grid>
+        </>
       ))}
     </Grid>
   );
