@@ -35,7 +35,7 @@ function Poster({ src, sx }) {
       src={src}
       second={second}
       sx={sx}
-      timeLimit={timeLimit}
+      timelimit={timeLimit}
     >
       <CircularProgressWithLabel
         sx={{

@@ -1,7 +1,7 @@
 import { Link } from "@mui/material";
 import { styled } from "@mui/system";
 
-const PosterContainer = styled(Link)(({ theme, src, second, timeLimit }) => ({
+const PosterContainer = styled(Link)(({ theme, src, second, timelimit }) => ({
   width: "100%",
   height: "100%",
   zIndex: 8,
@@ -14,7 +14,7 @@ const PosterContainer = styled(Link)(({ theme, src, second, timeLimit }) => ({
   backgroundSize: "cover",
   backgroundPosition: "center center",
   borderRadius: 8,
-  display: second === timeLimit ? "none" : "block",
+  display: second === timelimit ? "none" : "block",
   transition: "all 0.3s ease-out",
   "&:hover": {
     "&::after": {
