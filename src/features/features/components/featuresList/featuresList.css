@@ -1,0 +1,24 @@
+.swiper-features-next,
+.swiper-features-prev,
+.container-start,
+.container-end {
+  position: absolute;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 10;
+}
+
+.swiper-features-next,
+.container-start {
+  left: 0;
+  background-image: linear-gradient(to right, white 20%, transparent);
+}
+.swiper-features-prev,
+.container-end {
+  right: 0;
+  background-image: linear-gradient(to left, white 20%, transparent);
+}
+.swiper-features-disable {
+  display: none;
+}
