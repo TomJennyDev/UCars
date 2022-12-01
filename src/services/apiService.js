@@ -4,7 +4,7 @@ import { BASE_URL } from "./config";
 const apiService = axios.create({
   baseURL: BASE_URL,
 });
-console.log(BASE_URL);
+
 apiService.interceptors.request.use(
   (request) => {
     console.log("Start Request", request);

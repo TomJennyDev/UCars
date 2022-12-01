@@ -1,6 +1,6 @@
 export const calTotalPage = (items, limit, cb) => {
   let totalPage = Math.ceil(items.length / limit);
-  console.log(items);
+
   cb(totalPage);
   return totalPage;
 };

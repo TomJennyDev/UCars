@@ -10,7 +10,7 @@ function FMultiNumber({ name, icon, ...other }) {
       control={control}
       render={({ field, fieldState: { error } }) => {
         const { value, onChange, ...restfield } = field;
-        console.log(value);
+
         const handleOnChange = (e) => {
           console.log(e.target.name);
         };
