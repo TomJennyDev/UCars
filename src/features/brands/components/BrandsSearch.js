@@ -11,9 +11,10 @@ function BrandsSearch() {
       disableAnimation={true}
       sx={{
         ".MuiInputBase-input": { width: "240px", height: "40px", p: 0 },
-        "&&& .MuiInputAdornment-positionStart": {
-          mt: 0,
-        },
+        "&&& .MuiInputAdornment-root.MuiInputAdornment-positionStart.MuiInputAdornment-filled.MuiInputAdornment-sizeSmall":
+          {
+            mt: 0,
+          },
         ".MuiFilledInput-root": {
           borderRadius: 20,
           width: "240px",
