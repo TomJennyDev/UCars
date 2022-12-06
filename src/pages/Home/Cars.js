@@ -1,12 +1,15 @@
 import { Button, Container, Stack } from "@mui/material";
-import PaginationBar from "components/ui/PaginationBar";
-import { ProductList } from "features/products";
-import useStore from "hooks/useStore";
+import PaginationBar from "components/PaginationBar";
+import { carStore, ProductList, useFilterCar } from "features/products";
+import { useFetchCar } from "features/products/services/car.query";
+
 import { useState } from "react";
 
 function Cars() {
-  const { cars, isLoading, setPage, page, totalPage } = useStore();
   const [isShow, setIsShow] = useState(false);
+  const { page, totalPage } = carStore();
+  const { isLoading } = useFetchCar();
+  const { cars, setPage } = useFilterCar();
 
   return (
     <Stack
@@ -18,7 +21,7 @@ function Cars() {
     >
       <ProductList products={cars} isLoading={isLoading} />
 
-      {isShow ? (
+      {isShow && !isLoading ? (
         <PaginationBar setPage={setPage} page={page} totalPage={totalPage} />
       ) : (
         <Button variant="outlined" onClick={() => setIsShow(true)}>

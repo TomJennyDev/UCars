@@ -6,8 +6,9 @@ import FeaturesSkeleton from "../ui/FeaturesSkeleton";
 
 import { BREAKPOINTS } from "theme";
 
-import { calBreakPointSwiper, randomNumber } from "@utils";
+import { calBreakPointSwiper } from "@utils";
 import Poster from "components/Poster";
+import { randomNumber } from "utils/until";
 import FeaturesCard from "../FeaturesCard";
 import "./featuresList.css";
 

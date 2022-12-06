@@ -13,8 +13,18 @@ const routerMainLayout = [
   },
 ];
 
-const routerDashLayout = [
-  { path: "", index: true, element: lazy(() => import("pages/Dashboard")) },
+export const routerDashLayout = [
+  {
+    path: "brands",
+    title: "car brands list",
+    index: true,
+    element: lazy(() => import("pages/Dashboard/BrandPage")),
+  },
+  {
+    path: "brands/:id",
+    title: "brand details",
+    element: lazy(() => import("pages/Dashboard/BrandsDetailPage")),
+  },
 ];
 
 const renderRouters = (routers) => {
@@ -25,9 +35,10 @@ const renderRouters = (routers) => {
           <Route
             key={idx}
             index={route.index}
+            path={route.path}
             element={
-              <Suspense fallback={<></>}>
-                <route.element />
+              <Suspense fallback={<>{/* <LoadingPage /> */}</>}>
+                <route.element title={route.title} />
               </Suspense>
             }
           />

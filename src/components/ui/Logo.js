@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import { Link as RouterLink } from "react-router-dom";
 
-function Logo({ disabledLink = false, src, sx }) {
+function Logo({ disabledLink = false, src, sx, to }) {
   const logo = (
     <Box sx={{ width: 40, height: 40, ...sx }}>
       <img src={src} alt="logo" width="100%" />

@@ -1,12 +1,9 @@
-export const calTotalPage = (items, limit, cb) => {
-  let totalPage = Math.ceil(items.length / limit);
-
-  cb(totalPage);
-  return totalPage;
+export const calTotalPage = (items, limit) => {
+  return Math.ceil(items?.length / limit);
 };
 
 export const calItemsByNumberPages = (items, page, limit) => {
   const startItems = (page - 1) * limit;
   const endItems = page * limit;
-  return items.slice(startItems, endItems);
+  return items?.slice(startItems, endItems);
 };

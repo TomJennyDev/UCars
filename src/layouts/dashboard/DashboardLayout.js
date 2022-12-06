@@ -1,47 +1,66 @@
 // material
 import { styled } from "@mui/material/styles";
+import { useCallback, useState } from "react";
+import { Outlet } from "react-router-dom";
+import DashboardHeader from "./DasboardHeader";
+import DashBoardDrawer, { DrawerHeader } from "./drawer/DashboardDrawer";
 
 // ----------------------------------------------------------------------
-
-// const APP_BAR_MOBILE = 40;
-// const APP_BAR_DESKTOP = 80;
 
 const RootStyle = styled("div")(({ theme }) => ({
   display: "flex",
   minHeight: "100vh",
   overflow: "hidden",
-  backgroundColor: "#F2F5F9",
+  backgroundColor: theme.palette.background.paper,
+}));
+export const drawerWidth = 240;
+
+const MainStyled = styled("main", {
+  shouldForwardProp: (prop) => prop !== "open",
+})(({ theme, open }) => ({
+  flexGrow: 1,
+  padding: theme.spacing(3),
+  transition: theme.transitions.create("margin", {
+    easing: theme.transitions.easing.sharp,
+    duration: theme.transitions.duration.leavingScreen,
+  }),
+  marginLeft: `-${drawerWidth}px`,
+  ...(open && {
+    transition: theme.transitions.create("margin", {
+      easing: theme.transitions.easing.easeOut,
+      duration: theme.transitions.duration.enteringScreen,
+    }),
+    marginLeft: 0,
+  }),
+  maxHeight: "100vh",
+  overflowY: "hidden",
 }));
 
-// const MainStyle = styled("div")(({ theme }) => ({
-//   flexGrow: 1,
-//   overflow: "auto",
-//   minHeight: "100vh",
-//   paddingTop: APP_BAR_MOBILE + 30,
-//   paddingBottom: theme.spacing(10),
-//   [theme.breakpoints.up("lg")]: {
-//     paddingTop: APP_BAR_DESKTOP + 24,
-//     paddingLeft: theme.spacing(2),
-//     paddingRight: theme.spacing(2),
-//   },
-//   paddingLeft: theme.spacing(2),
-//   paddingRight: theme.spacing(2),
-// }));
-
 export default function DashboardLayout() {
-  // const [open, setOpen] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(true);
+
+  const handleDrawerOpen = useCallback(() => {
+    setOpenDrawer(true);
+  }, []);
+
+  const handleDrawerClose = useCallback(() => {
+    setOpenDrawer(false);
+  }, []);
 
   return (
-    <RootStyle direction="row">
-      {/* <DashboardSidebar
-        isOpenSidebar={open}
-        onCloseSidebar={() => setOpen(false)}
+    <RootStyle>
+      <DashBoardDrawer
+        isOpenDrawer={openDrawer}
+        handleDrawerClose={handleDrawerClose}
       />
-      <MainStyle>
-        <Stack direction="column">
-          <Outlet />
-        </Stack>
-      </MainStyle> */}
+      <DashboardHeader
+        isOpenDrawer={openDrawer}
+        handleDrawerOpen={handleDrawerOpen}
+      />
+      <MainStyled open={openDrawer}>
+        <DrawerHeader />
+        <Outlet />
+      </MainStyled>
     </RootStyle>
   );
 }

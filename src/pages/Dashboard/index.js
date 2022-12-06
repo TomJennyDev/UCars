@@ -1,7 +1,2 @@
-import React from "react";
-
-function DashboardPage() {
-  return <div>DashboardPage</div>;
-}
-
-export default DashboardPage;
+export { default as CarBrands } from "./BrandPage";
+export { default as BrandsDetail } from "./BrandsDetailPage";

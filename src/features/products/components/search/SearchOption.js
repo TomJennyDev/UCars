@@ -2,8 +2,8 @@ import { Container, Divider, Paper, Stack } from "@mui/material";
 
 import MonetizationOnIcon from "@mui/icons-material/MonetizationOn";
 import LoadingButton from "@mui/lab/LoadingButton";
+import useFilterCar from "features/products/hooks/useFilterCar";
 import FormProvider from "form/FormProvider";
-import useStore from "hooks/useStore";
 import { Fragment, useCallback, useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { fCurrency } from "utils/numberFormat";
@@ -42,7 +42,8 @@ const arrPopup = [
 ];
 
 function SearchOption() {
-  const { setFilters } = useStore();
+  const { setFilters } = useFilterCar();
+
   const [filter, setFilter] = useState(defaultValues);
 
   const [anchorEl, setAnchorEl] = useState(null);

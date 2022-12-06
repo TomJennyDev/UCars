@@ -1,10 +1,8 @@
 import { createContext } from "react";
 import useCar from "../features/products/hooks/useCar";
 
-export const StoreContext = createContext();
+export const CarContext = createContext();
 
-export function StoreProvider({ children }) {
-  return (
-    <StoreContext.Provider value={useCar()}>{children}</StoreContext.Provider>
-  );
+export function CarProvider({ children }) {
+  return <CarContext.Provider value={useCar()}>{children}</CarContext.Provider>;
 }

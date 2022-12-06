@@ -4,7 +4,7 @@ import { useCallback, useMemo } from "react";
 import { toast } from "react-toastify";
 import { calItemsByNumberPages, calTotalPage } from "utils/paging";
 import create from "zustand";
-import { devtools, redux } from "zustand/middleware";
+import { redux } from "zustand/middleware";
 import carApi from "../../products/services/carApi";
 
 export const actionTypes = {
@@ -40,7 +40,7 @@ export const featureReducer = (state, action) => {
   }
 };
 
-const featuresStore = create(devtools(redux(featureReducer, initialState)));
+const featuresStore = create(redux(featureReducer, initialState));
 
 function useFeatures() {
   const { dispatch, features, page, limit } = featuresStore();
