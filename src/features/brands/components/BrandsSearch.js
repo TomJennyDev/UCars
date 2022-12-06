@@ -11,8 +11,8 @@ function BrandsSearch() {
       disableAnimation={true}
       sx={{
         ".MuiInputBase-input": { width: "240px", height: "40px", p: 0 },
-        ".MuiInputAdornment-root:not(.MuiInputAdornment-hiddenLabel)": {
-          margin: 0,
+        "&&& .MuiInputAdornment-positionStart": {
+          mt: 0,
         },
         ".MuiFilledInput-root": {
           borderRadius: 20,
@@ -25,7 +25,7 @@ function BrandsSearch() {
         ".MuiInputBase-root:hover::before": {
           border: "none",
         },
-        ".MuiInputBase-root::after": {
+        "&&& .MuiInputBase-root::after": {
           border: "none",
         },
       }}
