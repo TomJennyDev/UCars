@@ -23,7 +23,7 @@ function BrandsSearch() {
         ".MuiInputBase-root::before": {
           border: "none",
         },
-        ".MuiInputBase-root:hover::before": {
+        "&&& .MuiInputBase-root:hover::before": {
           border: "none",
         },
         "&&& .MuiInputBase-root::after": {
