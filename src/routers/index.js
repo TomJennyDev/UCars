@@ -1,3 +1,4 @@
+import LoadingPage from "components/ui/LoadingPage";
 import BlankLayout from "layouts/BlankLayout";
 import DashboardLayout from "layouts/dashboard/DashboardLayout";
 import MainLayout from "layouts/main/MainLayout";
@@ -37,7 +38,13 @@ const renderRouters = (routers) => {
             index={route.index}
             path={route.path}
             element={
-              <Suspense fallback={<>{/* <LoadingPage /> */}</>}>
+              <Suspense
+                fallback={
+                  <>
+                    <LoadingPage />
+                  </>
+                }
+              >
                 <route.element title={route.title} />
               </Suspense>
             }
