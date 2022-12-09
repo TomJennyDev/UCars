@@ -1,6 +1,5 @@
 import { Stack, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
 
 function ItemHIW({ item }) {
   const { imgUrl, title, content } = item;
@@ -15,7 +14,7 @@ function ItemHIW({ item }) {
       spacing={4}
     >
       <Box>
-        <img height="140" src={imgUrl} alt={title} />
+        <img height="140" src={imgUrl} alt={title} loading="lazy" />
       </Box>
       <Typography
         gutterBottom

@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Typography from "@mui/material/Typography";
-import * as React from "react";
+import { useState } from "react";
 
 const style = {
   position: "absolute",
@@ -17,7 +17,7 @@ const style = {
 };
 
 export default function BrandModal() {
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
